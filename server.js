@@ -57,22 +57,17 @@ app.get("/", function(req, res) {
 
 // use cheerio to scrape stories from TechCrunch and store them
 app.get("/scrape", function(req, res) {
-  request("https://techcrunch.com/", function(error, response, html) {
+  request("https://shop.tcgplayer.com/price-guide/cardfight-vanguard", function(error, response, html) {
     // Load the html body from request into cheerio
     var $ = cheerio.load(html);
-    $("div.post-block").each(function(i, element) {
+    $("tr").each(function(i, element) {
 
       // trim() removes whitespace because the items return \n and \t before and after the text
-      var title = $(element).find("a.post-block__title__link").text().trim();
-      var link = $(element).find("a.post-block__title__link").attr("href");
-      var intro = $(element).children(".post-block__content").text().trim();
-
+      var title = $(element).find("div.productDetail").text().trim();
       // if these are present in the scraped data, create an article in the database collection
-      if (title && link && intro) {
+      if (title) {
         db.Article.create({
             title: title,
-            link: link,
-            intro: intro
           },
           function(err, inserted) {
             if (err) {

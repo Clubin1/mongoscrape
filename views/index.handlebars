@@ -4,7 +4,7 @@
     <div class="navbar-nav">
       <a class="nav-item nav-link active" href="/">Home</a>
       <a class="nav-item nav-link" href="/saved">Saved articles</a>
-      <a class="btn btn-danger scrape-new">Get new articles</a>
+    
     </div>
   </div>
 </nav>
@@ -12,14 +12,22 @@
 <div class="jumbotron jumbotron-fluid text-center">
   <h1 class="display-4">New Cards</h1>
   <p class="lead">Get the latest from vanguard cards</p>
+  
 </div>
 
 <div class="container article-container">
+    <a class="btn btn-danger scrape-new">The Next stage</a>
+      <a class="btn btn-danger scrape-new-2">The astral force</a>
+      <a class="btn btn-danger scrape-new-3">Team dragons vanity</a>
+      <a class="btn btn-danger scrape-new-4">crystal melody/a>
+      <a class="btn btn-danger scrape-new-5">mysterious fortune</a>
+      <a class="btn btn-danger scrape-new-6">The raging tactics</a>
+      <a class="btn btn-danger scrape-new-7">My gloruis justice</a>
   <h3>Cards</h3>
   {{#each articles}}
     <div class="card bg-light mb-3">
       <div class="card-body">
-        <h5 class="card-title">{{articles.title}}</h5>
+        <h5 class="card-title">{{title}}</h5>
       </div>
     </div>
   {{/each}}

@@ -57,17 +57,23 @@ app.get("/", function(req, res) {
 
 // use cheerio to scrape stories from TechCrunch and store them
 app.get("/scrape", function(req, res) {
-  request("https://shop.tcgplayer.com/price-guide/cardfight-vanguard", function(error, response, html) {
+  request("https://shop.tcgplayer.com/price-guide/cardfight-vanguard/v-eb14-the-next-stage", function(error, response, html) {
     // Load the html body from request into cheerio
     var $ = cheerio.load(html);
     $("tr").each(function(i, element) {
 
       // trim() removes whitespace because the items return \n and \t before and after the text
       var title = $(element).find("div.productDetail").text().trim();
+      var price = $(element).find("td.marketPrice").text().trim();
+      var medianPrice = $(element).find("td.medianPrice").text().trim();
+      var rarity = $(element).find('td.rarity').text().trim();
       // if these are present in the scraped data, create an article in the database collection
       if (title) {
         db.Article.create({
             title: title,
+            price: price,
+            medianPrice: medianPrice,
+            rarity: rarity
           },
           function(err, inserted) {
             if (err) {
@@ -88,6 +94,239 @@ app.get("/scrape", function(req, res) {
   });
 });
 
+// use cheerio to scrape stories from TechCrunch and store them
+app.get("/scrape2", function(req, res) {
+  request("https://shop.tcgplayer.com/price-guide/cardfight-vanguard/v-eb13-the-astral-force", function(error, response, html) {
+    // Load the html body from request into cheerio
+    var $ = cheerio.load(html);
+    $("tr").each(function(i, element) {
+
+      // trim() removes whitespace because the items return \n and \t before and after the text
+      var title = $(element).find("div.productDetail").text().trim();
+      var price = $(element).find("td.marketPrice").text().trim();
+      var medianPrice = $(element).find("td.medianPrice").text().trim();
+      var rarity = $(element).find('td.rarity').text().trim();
+      // if these are present in the scraped data, create an article in the database collection
+      if (title) {
+        db.Article.create({
+            title: title,
+            price: price,
+            medianPrice: medianPrice,
+            rarity: rarity
+          },
+          function(err, inserted) {
+            if (err) {
+              // log the error if one is encountered during the query
+              console.log(err);
+            } else {
+              // otherwise, log the inserted data
+              console.log(inserted);
+            }
+          });
+        // if there are 10 articles, then return the callback to the frontend
+        console.log(i);
+        if (i === 10) {
+          return res.sendStatus(200);
+        }
+      }
+    });
+  });
+});
+
+
+// use cheerio to scrape stories from TechCrunch and store them
+app.get("/scrape3", function(req, res) {
+  request("https://shop.tcgplayer.com/price-guide/cardfight-vanguard/v-eb12-team-dragons-vanity", function(error, response, html) {
+    // Load the html body from request into cheerio
+    var $ = cheerio.load(html);
+    $("tr").each(function(i, element) {
+
+      // trim() removes whitespace because the items return \n and \t before and after the text
+      var title = $(element).find("div.productDetail").text().trim();
+      var price = $(element).find("td.marketPrice").text().trim();
+      var medianPrice = $(element).find("td.medianPrice").text().trim();
+      var rarity = $(element).find('td.rarity').text().trim();
+      // if these are present in the scraped data, create an article in the database collection
+      if (title) {
+        db.Article.create({
+            title: title,
+            price: price,
+            medianPrice: medianPrice,
+            rarity: rarity
+          },
+          function(err, inserted) {
+            if (err) {
+              // log the error if one is encountered during the query
+              console.log(err);
+            } else {
+              // otherwise, log the inserted data
+              console.log(inserted);
+            }
+          });
+        // if there are 10 articles, then return the callback to the frontend
+        console.log(i);
+        if (i === 10) {
+          return res.sendStatus(200);
+        }
+      }
+    });
+  });
+});
+
+// use cheerio to scrape stories from TechCrunch and store them
+app.get("/scrape4", function(req, res) {
+  request("https://shop.tcgplayer.com/price-guide/cardfight-vanguard/v-eb11-crystal-melody", function(error, response, html) {
+    // Load the html body from request into cheerio
+    var $ = cheerio.load(html);
+    $("tr").each(function(i, element) {
+
+      // trim() removes whitespace because the items return \n and \t before and after the text
+      var title = $(element).find("div.productDetail").text().trim();
+      var price = $(element).find("td.marketPrice").text().trim();
+      var medianPrice = $(element).find("td.medianPrice").text().trim();
+      var rarity = $(element).find('td.rarity').text().trim();
+      // if these are present in the scraped data, create an article in the database collection
+      if (title) {
+        db.Article.create({
+            title: title,
+            price: price,
+            medianPrice: medianPrice,
+            rarity: rarity
+          },
+          function(err, inserted) {
+            if (err) {
+              // log the error if one is encountered during the query
+              console.log(err);
+            } else {
+              // otherwise, log the inserted data
+              console.log(inserted);
+            }
+          });
+        // if there are 10 articles, then return the callback to the frontend
+        console.log(i);
+        if (i === 10) {
+          return res.sendStatus(200);
+        }
+      }
+    });
+  });
+});
+
+// use cheerio to scrape stories from TechCrunch and store them
+app.get("/scrape5", function(req, res) {
+  request("https://shop.tcgplayer.com/price-guide/cardfight-vanguard/v-eb10-the-mysterious-fortune", function(error, response, html) {
+    // Load the html body from request into cheerio
+    var $ = cheerio.load(html);
+    $("tr").each(function(i, element) {
+
+      // trim() removes whitespace because the items return \n and \t before and after the text
+      var title = $(element).find("div.productDetail").text().trim();
+      var price = $(element).find("td.marketPrice").text().trim();
+      var medianPrice = $(element).find("td.medianPrice").text().trim();
+      var rarity = $(element).find('td.rarity').text().trim();
+      // if these are present in the scraped data, create an article in the database collection
+      if (title) {
+        db.Article.create({
+            title: title,
+            price: price,
+            medianPrice: medianPrice,
+            rarity: rarity
+          },
+          function(err, inserted) {
+            if (err) {
+              // log the error if one is encountered during the query
+              console.log(err);
+            } else {
+              // otherwise, log the inserted data
+              console.log(inserted);
+            }
+          });
+        // if there are 10 articles, then return the callback to the frontend
+        console.log(i);
+        if (i === 10) {
+          return res.sendStatus(200);
+        }
+      }
+    });
+  });
+});
+
+// use cheerio to scrape stories from TechCrunch and store them
+app.get("/scrape6", function(req, res) {
+  request("https://shop.tcgplayer.com/price-guide/cardfight-vanguard/v-eb09-the-raging-tactics", function(error, response, html) {
+    // Load the html body from request into cheerio
+    var $ = cheerio.load(html);
+    $("tr").each(function(i, element) {
+
+      // trim() removes whitespace because the items return \n and \t before and after the text
+      var title = $(element).find("div.productDetail").text().trim();
+      var price = $(element).find("td.marketPrice").text().trim();
+      var medianPrice = $(element).find("td.medianPrice").text().trim();
+      var rarity = $(element).find('td.rarity').text().trim();
+      // if these are present in the scraped data, create an article in the database collection
+      if (title) {
+        db.Article.create({
+            title: title,
+            price: price,
+            medianPrice: medianPrice,
+            rarity: rarity
+          },
+          function(err, inserted) {
+            if (err) {
+              // log the error if one is encountered during the query
+              console.log(err);
+            } else {
+              // otherwise, log the inserted data
+              console.log(inserted);
+            }
+          });
+        // if there are 10 articles, then return the callback to the frontend
+        console.log(i);
+        if (i === 10) {
+          return res.sendStatus(200);
+        }
+      }
+    });
+  });
+});
+
+app.get("/scrape7", function(req, res) {
+  request("https://shop.tcgplayer.com/price-guide/cardfight-vanguard/v-eb08-my-glorious-justice", function(error, response, html) {
+    // Load the html body from request into cheerio
+    var $ = cheerio.load(html);
+    $("tr").each(function(i, element) {
+
+      // trim() removes whitespace because the items return \n and \t before and after the text
+      var title = $(element).find("div.productDetail").text().trim();
+      var price = $(element).find("td.marketPrice").text().trim();
+      var medianPrice = $(element).find("td.medianPrice").text().trim();
+      var rarity = $(element).find('td.rarity').text().trim();
+      // if these are present in the scraped data, create an article in the database collection
+      if (title) {
+        db.Article.create({
+            title: title,
+            price: price,
+            medianPrice: medianPrice,
+            rarity: rarity
+          },
+          function(err, inserted) {
+            if (err) {
+              // log the error if one is encountered during the query
+              console.log(err);
+            } else {
+              // otherwise, log the inserted data
+              console.log(inserted);
+            }
+          });
+        // if there are 10 articles, then return the callback to the frontend
+        console.log(i);
+        if (i === 10) {
+          return res.sendStatus(200);
+        }
+      }
+    });
+  });
+});
 // route for retrieving all the saved articles
 app.get("/saved", function(req, res) {
   db.Article.find({

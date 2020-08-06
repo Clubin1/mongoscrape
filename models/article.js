@@ -9,6 +9,18 @@ var ArticleSchema = new Schema({
     type: String,
     require: false,
   },
+  price: {
+    type: String,
+    require:false,
+  },
+  medianPrice: {
+    type: String,
+    require:false,
+  },
+  rarity: {
+    type: String,
+    require:false
+  }
 });
 
 // create model

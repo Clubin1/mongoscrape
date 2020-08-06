@@ -24,7 +24,7 @@ $(document).ready(function() {
     );
   });
 
-// get new articles when the button is clicked
+// next-stage set
   $(".scrape-new").on("click", function(event) {
     event.preventDefault();
     $.get("/scrape", function(data) {
@@ -32,6 +32,52 @@ $(document).ready(function() {
     });
   });
 
+  // The astral force set
+  $(".scrape-new-2").on("click", function(event) {
+    event.preventDefault();
+    $.get("/scrape2", function(data) {
+      window.location.reload();
+    });
+  });
+
+    // Team dragons vanity
+    $(".scrape-new-3").on("click", function(event) {
+      event.preventDefault();
+      $.get("/scrape3", function(data) {
+        window.location.reload();
+      });
+    });
+
+        // Crystal melody
+        $(".scrape-new-4").on("click", function(event) {
+          event.preventDefault();
+          $.get("/scrape4", function(data) {
+            window.location.reload();
+          });
+        });
+
+                // The mysterious fortune
+                $(".scrape-new-5").on("click", function(event) {
+                  event.preventDefault();
+                  $.get("/scrape5", function(data) {
+                    window.location.reload();
+                  });
+                });
+                                // The raging tactic
+                                $(".scrape-new-6").on("click", function(event) {
+                                  event.preventDefault();
+                                  $.get("/scrape6", function(data) {
+                                    window.location.reload();
+                                  });
+                                });
+
+                                                              // The raging tactic
+                                                              $(".scrape-new-7").on("click", function(event) {
+                                                                event.preventDefault();
+                                                                $.get("/scrape7", function(data) {
+                                                                  window.location.reload();
+                                                                });
+                                                              });
   // when the button to removed a saved article from the saved list, get the article ID and set its saved property back to false
 
   $(".unsave-btn").on("click", function(event) {

@@ -20,6 +20,10 @@ var ArticleSchema = new Schema({
   rarity: {
     type: String,
     require:false
+  },
+  img: {
+    type: String,
+    require: true
   }
 });
 
